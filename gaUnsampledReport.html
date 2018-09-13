@@ -13,8 +13,6 @@
     p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.0px; font: 12.0px Menlo; color: #6f42c1; -webkit-text-stroke: #6f42c1}
     p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.0px; font: 12.0px Menlo; color: #24292e; -webkit-text-stroke: #24292e; min-height: 14.0px}
     p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.0px; font: 12.0px Menlo; color: #032f62; -webkit-text-stroke: #032f62}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
     span.s1 {font-kerning: none; color: #24292e; -webkit-text-stroke: 0px #24292e}
     span.s2 {font-kerning: none}
     span.s3 {font-kerning: none; color: #6f42c1; -webkit-text-stroke: 0px #6f42c1}
@@ -231,166 +229,169 @@
         <p class="p2"><span class="s2"></span><br></p>
       </td>
       <td valign="top" class="td3">
-        <p class="p7">var LOG_SHEET_NAME = 'Unsampled Report Logs';</p>
-        <p class="p7">var ss = SpreadsheetApp.getActive();</p>
-        <p class="p8"><br></p>
-        <p class="p7">//var ui = SpreadsheetApp.getUi();</p>
-        <p class="p8"><br></p>
-        <p class="p7">function requestReport() {</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var ss = SpreadsheetApp.getActive();</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var reportConfigSheet = ss.getSheetByName('Report Configuration');</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var t =2;</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var numberOfColumns = reportConfigSheet.getRange("C1").getValue();</p>
-        <p class="p8"><span class="Apple-converted-space"> </span></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>//adding more columns<span class="Apple-converted-space"> </span></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>for (var i=1; i&lt;=numberOfColumns; i++){</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var startDateRange = reportConfigSheet.getRange(5,t);<span class="Apple-converted-space"> </span></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var startDate = startDateRange.getValue();</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var endDateRange = reportConfigSheet.getRange(6,t);<span class="Apple-converted-space"> </span></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var endDate = endDateRange.getValue();</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var metricsRange = reportConfigSheet.getRange(8,t);<span class="Apple-converted-space"> </span></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var metrics = metricsRange.getValue();</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var dimensionsRange = reportConfigSheet.getRange(9,t);<span class="Apple-converted-space"> </span></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var dimensions = dimensionsRange.getValue();</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var filtersRange = reportConfigSheet.getRange(11,t);<span class="Apple-converted-space"> </span></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var filters = filtersRange.getValue();</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var titleRange = reportConfigSheet.getRange(2,t);<span class="Apple-converted-space"> </span></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var title = titleRange.getValue();</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var sortRange = reportConfigSheet.getRange(10,t);<span class="Apple-converted-space"> </span></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var sort = sortRange.getValue();</p>
-        <p class="p8"><span class="Apple-converted-space">  </span></p>
-        <p class="p7"><span class="Apple-converted-space">   </span>if (title != "" | startDate != "" | endDate != "" | metrics != "" | dimensions != "" ){</p>
-        <p class="p8"><span class="Apple-converted-space">   </span></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var resource = {</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>'title': title,</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>'start-date': startDate,</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>'end-date': endDate,</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>'metrics': metrics,</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>'dimensions': dimensions,</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>'sort': sort,</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>'filters': filters</p>
-        <p class="p7"><span class="Apple-converted-space">      </span>};</p>
-        <p class="p7"><span class="Apple-converted-space">   </span>var ss = SpreadsheetApp.getActive();</p>
-        <p class="p7"><span class="Apple-converted-space">   </span>var reportConfigSheet = ss.getSheetByName('Report Configuration');</p>
-        <p class="p7"><span class="Apple-converted-space">   </span>var accountId = reportConfigSheet.getRange(18,t).getValue();</p>
-        <p class="p7"><span class="Apple-converted-space">   </span>var webPropertyId = reportConfigSheet.getRange(19,t).getValue();</p>
-        <p class="p7"><span class="Apple-converted-space">   </span>var profileId = reportConfigSheet.getRange(20,t).getValue();</p>
-        <p class="p8"><br></p>
-        <p class="p8"><br></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>try {</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>var request = Analytics.Management.UnsampledReports.insert(resource, accountId, webPropertyId, profileId);</p>
-        <p class="p8"><span class="Apple-converted-space">    </span></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>} catch (error) {</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>ui.alert('Error Performing Unsampled Report Query', error.message, ui.ButtonSet.OK);</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>return;</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>}</p>
-        <p class="p8"><br></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var sheet = ss.getSheetByName(LOG_SHEET_NAME);</p>
-        <p class="p8"><br></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>if (!sheet) {</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>sheet = ss.insertSheet(LOG_SHEET_NAME);</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>sheet.appendRow(['User', 'Account', 'Web Property', 'View', 'Title', 'Inserted Time', 'Updated Time', 'Status', 'Id', 'File']);</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>sheet.getRange(1, 1, 1, 10).setFontWeight('bold');</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>}</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>sheet.appendRow([</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>Session.getEffectiveUser().getEmail(),</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>request.accountId,</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>request.webPropertyId,</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>request.profileId,</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>request.title,</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>request.created,</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>request.updated,</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>request.status,</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>request.id</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>]);</p>
-        <p class="p7"><span class="Apple-converted-space"> </span>t++;</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>}else{</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>var failRecords = "Some reports were not run. Please make sure all the fields are correct."</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>Browser.msgBox(failRecords);</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>}</p>
-        <p class="p8"><span class="Apple-converted-space">  </span></p>
-        <p class="p7">}</p>
-        <p class="p8"><span class="Apple-converted-space">  </span></p>
-        <p class="p7">}</p>
-        <p class="p8"><span class="Apple-converted-space"> </span></p>
-        <p class="p7">// Scans LOG_SHEET_NAME and tries to update any report that is PENDING</p>
-        <p class="p7">function updateAllReports() {</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var sheet = ss.getSheetByName(LOG_SHEET_NAME);</p>
-        <p class="p8"><br></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var lastRow = sheet.getLastRow();</p>
-        <p class="p8"><br></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var dataRange = sheet.getRange(2,1, lastRow, 10);</p>
-        <p class="p8"><br></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var data = dataRange.getValues();</p>
-        <p class="p8"><br></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>for (var i=0; i&lt;data.length; i++) {</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>// If data is PENDING let's try to update it's status. Hopefully it's complete now</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>// but it may take up to 24h to process an Unsampled Reprot</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>if (data[i][0] == Session.getEffectiveUser().getEmail() &amp;&amp; data[i][7] == 'PENDING') {</p>
-        <p class="p7"><span class="Apple-converted-space">      </span>try {</p>
-        <p class="p7"><span class="Apple-converted-space">      </span>var request = Analytics.Management.UnsampledReports.get(data[i][1], data[i][2], data[i][3], data[i][8]);</p>
-        <p class="p7"><span class="Apple-converted-space">      </span>} catch (error) {</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>ui.alert('Error Performing Unsampled Report Query', error.message, ui.ButtonSet.OK);</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>return;</p>
-        <p class="p7"><span class="Apple-converted-space">      </span>}</p>
-        <p class="p8"><br></p>
-        <p class="p7"><span class="Apple-converted-space">      </span>data[i] = [</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>Session.getEffectiveUser().getEmail(),</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>request.accountId,</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>request.webPropertyId,</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>request.profileId,</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>request.title,</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>request.created,</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>request.updated,</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>request.status,</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>request.id,</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>request.status == 'COMPLETED' ? DriveApp.getFileById(request.driveDownloadDetails.documentId).getUrl() : ''</p>
-        <p class="p7"><span class="Apple-converted-space">      </span>];</p>
-        <p class="p8"><br></p>
-        <p class="p8"><br></p>
-        <p class="p7"><span class="Apple-converted-space">      </span>// If data is Complete let's import it into a new sheet</p>
-        <p class="p7"><span class="Apple-converted-space">      </span>if (request.status == 'COMPLETED') {</p>
-        <p class="p7"><span class="Apple-converted-space">        </span>importReportFromDrive(request.title, request.driveDownloadDetails.documentId);</p>
-        <p class="p7"><span class="Apple-converted-space">      </span>}</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>}</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>}</p>
-        <p class="p8"><br></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>// Write only once to the spreadsheet this is faster</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>dataRange.setValues(data);</p>
-        <p class="p8"><br></p>
-        <p class="p7">}</p>
-        <p class="p8"><br></p>
-        <p class="p7">function importReportFromDrive(title, fileId) {</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var file = DriveApp.getFileById(fileId);</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var csvString = file.getBlob().getDataAsString();</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var data = Utilities.parseCsv(csvString);</p>
-        <p class="p7"><span class="Apple-converted-space">  </span>var ss = SpreadsheetApp.getActiveSpreadsheet();</p>
-        <p class="p8"><br></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>// Check if the sheet already exists</p>
-        <p class="p8"><span class="Apple-converted-space">  </span></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>if (ss.getSheetByName(title)==null){</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>var i=1;</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>var sheetName = title;</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>while (ss.getSheetByName(sheetName)) {</p>
-        <p class="p7"><span class="Apple-converted-space">      </span>sheetName = title + ' ('+ i++ +')';</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>}</p>
-        <p class="p8"><span class="Apple-converted-space">    </span></p>
-        <p class="p7"><span class="Apple-converted-space">    </span>var sheet = ss.insertSheet(sheetName);</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>var range = sheet.getRange(2, 1, data.length, data[0].length);</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>range.setValues(data);</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>//sheet.insertRows(1);</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>var date = Utilities.formatDate(new Date(), "PST", "MM/dd/yyyy '@' hh:mm a");</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>sheet.getRange("A1").setValue("Last updated: " +date);</p>
-        <p class="p8"><span class="Apple-converted-space">    </span></p>
-        <p class="p7"><span class="Apple-converted-space">  </span>}else{</p>
-        <p class="p8"><span class="Apple-converted-space"> </span></p>
-        <p class="p7"><span class="Apple-converted-space">    </span>var dataSheet = ss.getSheetByName(title);</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>dataSheet.clear();</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>var range = dataSheet.getRange(2, 1, data.length, data[0].length);</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>range.setValues(data);</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>//dataSheet.insertRows(1);</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>var date = Utilities.formatDate(new Date(), "PST", "MM/dd/yyyy '@' hh:mm a");</p>
-        <p class="p7"><span class="Apple-converted-space">    </span>dataSheet.getRange("A1").setValue("Last updated: " +date);</p>
+        <p class="p3"><span class="s2">var LOG_SHEET_NAME = 'Unsampled Report Logs';</span></p>
+        <p class="p3"><span class="s2">var ss = SpreadsheetApp.getActive();</span></p>
+        <p class="p5"><span class="s2"></span><br></p>
+        <p class="p3"><span class="s2">//var ui = SpreadsheetApp.getUi();</span></p>
+        <p class="p5"><span class="s2"></span><br></p>
+        <p class="p3"><span class="s2">function requestReport() {</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var ss = SpreadsheetApp.getActive();</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var reportConfigSheet = ss.getSheetByName('Report Configuration');</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var t =2;</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var numberOfColumns = reportConfigSheet.getRange("C1").getValue();</span></p>
+        <p class="p5"><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>//adding more columns<span class="Apple-converted-space"> </span></span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>for (var i=1; i&lt;=numberOfColumns; i++){</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var startDateRange = reportConfigSheet.getRange(5,t);<span class="Apple-converted-space"> </span></span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var startDate = startDateRange.getValue();</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var endDateRange = reportConfigSheet.getRange(6,t);<span class="Apple-converted-space"> </span></span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var endDate = endDateRange.getValue();</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var metricsRange = reportConfigSheet.getRange(8,t);<span class="Apple-converted-space"> </span></span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var metrics = metricsRange.getValue();</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var dimensionsRange = reportConfigSheet.getRange(9,t);<span class="Apple-converted-space"> </span></span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var dimensions = dimensionsRange.getValue();</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var filtersRange = reportConfigSheet.getRange(11,t);<span class="Apple-converted-space"> </span></span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var filters = filtersRange.getValue();</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var titleRange = reportConfigSheet.getRange(2,t);<span class="Apple-converted-space"> </span></span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var title = titleRange.getValue();</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var sortRange = reportConfigSheet.getRange(10,t);<span class="Apple-converted-space"> </span></span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var sort = sortRange.getValue();</span></p>
+        <p class="p5"><span class="s2"><span class="Apple-converted-space">  </span></span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">   </span>if (title != "" | startDate != "" | endDate != "" | metrics != "" | dimensions != "" ){</span></p>
+        <p class="p5"><span class="s2"><span class="Apple-converted-space">   </span></span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var resource = {</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>'title': title,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>'start-date': startDate,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>'end-date': endDate,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>'metrics': metrics,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>'dimensions': dimensions,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>'sort': sort,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>'filters': filters</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">      </span>};</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">   </span>var ss = SpreadsheetApp.getActive();</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">   </span>var reportConfigSheet = ss.getSheetByName('Report Configuration');</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">   </span>var accountId = reportConfigSheet.getRange(18,t).getValue();</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">   </span>var webPropertyId = reportConfigSheet.getRange(19,t).getValue();</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">   </span>var profileId = reportConfigSheet.getRange(20,t).getValue();</span></p>
+        <p class="p5"><span class="s2"></span><br></p>
+        <p class="p5"><span class="s2"></span><br></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>try {</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>var request = Analytics.Management.UnsampledReports.insert(resource, accountId, webPropertyId, profileId);</span></p>
+        <p class="p5"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>} catch (error) {</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>ui.alert('Error Performing Unsampled Report Query', error.message, ui.ButtonSet.OK);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>return;</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+        <p class="p5"><span class="s2"></span><br></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var sheet = ss.getSheetByName(LOG_SHEET_NAME);</span></p>
+        <p class="p5"><span class="s2"></span><br></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>if (!sheet) {</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>sheet = ss.insertSheet(LOG_SHEET_NAME);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>sheet.appendRow(['User', 'Account', 'Web Property', 'View', 'Title', 'Inserted Time', 'Updated Time', 'Status', 'Id', 'File']);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>sheet.getRange(1, 1, 1, 10).setFontWeight('bold');</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>sheet.appendRow([</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>Session.getEffectiveUser().getEmail(),</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>request.accountId,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>request.webPropertyId,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>request.profileId,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>request.title,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>request.created,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>request.updated,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>request.status,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>request.id</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>]);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space"> </span>t++;</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>}else{</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>var failRecords = "Some reports were not run. Please make sure all the fields are correct."</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>Browser.msgBox(failRecords);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+        <p class="p5"><span class="s2"><span class="Apple-converted-space">  </span></span></p>
+        <p class="p3"><span class="s2">}</span></p>
+        <p class="p5"><span class="s2"><span class="Apple-converted-space">  </span></span></p>
+        <p class="p3"><span class="s2">}</span></p>
+        <p class="p5"><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+        <p class="p3"><span class="s2">// Scans LOG_SHEET_NAME and tries to update any report that is PENDING</span></p>
+        <p class="p3"><span class="s2">function updateAllReports() {</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var sheet = ss.getSheetByName(LOG_SHEET_NAME);</span></p>
+        <p class="p5"><span class="s2"></span><br></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var lastRow = sheet.getLastRow();</span></p>
+        <p class="p5"><span class="s2"></span><br></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var dataRange = sheet.getRange(2,1, lastRow, 10);</span></p>
+        <p class="p5"><span class="s2"></span><br></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var data = dataRange.getValues();</span></p>
+        <p class="p5"><span class="s2"></span><br></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>for (var i=0; i&lt;data.length; i++) {</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>// If data is PENDING let's try to update it's status. Hopefully it's complete now</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>// but it may take up to 24h to process an Unsampled Reprot</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>if (data[i][0] == Session.getEffectiveUser().getEmail() &amp;&amp; data[i][7] == 'PENDING') {</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">      </span>try {</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">      </span>var request = Analytics.Management.UnsampledReports.get(data[i][1], data[i][2], data[i][3], data[i][8]);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">      </span>} catch (error) {</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>ui.alert('Error Performing Unsampled Report Query', error.message, ui.ButtonSet.OK);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>return;</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">      </span>}</span></p>
+        <p class="p5"><span class="s2"></span><br></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">      </span>data[i] = [</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>Session.getEffectiveUser().getEmail(),</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>request.accountId,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>request.webPropertyId,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>request.profileId,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>request.title,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>request.created,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>request.updated,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>request.status,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>request.id,</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>request.status == 'COMPLETED' ? DriveApp.getFileById(request.driveDownloadDetails.documentId).getUrl() : ''</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">      </span>];</span></p>
+        <p class="p5"><span class="s2"></span><br></p>
+        <p class="p5"><span class="s2"></span><br></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">      </span>// If data is Complete let's import it into a new sheet</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">      </span>if (request.status == 'COMPLETED') {</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">        </span>importReportFromDrive(request.title, request.driveDownloadDetails.documentId);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">      </span>}</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+        <p class="p5"><span class="s2"></span><br></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>// Write only once to the spreadsheet this is faster</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>dataRange.setValues(data);</span></p>
+        <p class="p5"><span class="s2"></span><br></p>
+        <p class="p3"><span class="s2">}</span></p>
+        <p class="p5"><span class="s2"></span><br></p>
+        <p class="p3"><span class="s2">function importReportFromDrive(title, fileId) {</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var file = DriveApp.getFileById(fileId);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var csvString = file.getBlob().getDataAsString();</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var data = Utilities.parseCsv(csvString);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>var ss = SpreadsheetApp.getActiveSpreadsheet();</span></p>
+        <p class="p5"><span class="s2"></span><br></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>// Check if the sheet already exists</span></p>
+        <p class="p5"><span class="s2"><span class="Apple-converted-space">  </span></span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>if (ss.getSheetByName(title)==null){</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>var i=1;</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>var sheetName = title;</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>while (ss.getSheetByName(sheetName)) {</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">      </span>sheetName = title + ' ('+ i++ +')';</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
+        <p class="p5"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>var sheet = ss.insertSheet(sheetName);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>var range = sheet.getRange(2, 1, data.length, data[0].length);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>range.setValues(data);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>//sheet.insertRows(1);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>var date = Utilities.formatDate(new Date(), "PST", "MM/dd/yyyy '@' hh:mm a");</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>sheet.getRange("A1").setValue("Last updated: " +date);</span></p>
+        <p class="p5"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>}else{</span></p>
+        <p class="p5"><span class="s2"><span class="Apple-converted-space"> </span></span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>var dataSheet = ss.getSheetByName(title);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>dataSheet.clear();</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>var range = dataSheet.getRange(2, 1, data.length, data[0].length);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>range.setValues(data);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>//dataSheet.insertRows(1);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>var date = Utilities.formatDate(new Date(), "PST", "MM/dd/yyyy '@' hh:mm a");</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">    </span>dataSheet.getRange("A1").setValue("Last updated: " +date);</span></p>
+        <p class="p3"><span class="s2"><span class="Apple-converted-space">  </span>}</span></p>
+        <p class="p5"><span class="s2"><span class="Apple-converted-space">  </span></span></p>
+        <p class="p3"><span class="s2">}<span class="Apple-tab-span">	</span></span></p>
       </td>
     </tr>
     <tr>
@@ -398,7 +399,7 @@
         <p class="p2"><span class="s2"></span><br></p>
       </td>
       <td valign="top" class="td3">
-        <p class="p5"><span class="s2"></span><br></p>
+        <p class="p5"><span class="s2"><span class="Apple-tab-span">	</span></span></p>
       </td>
     </tr>
     <tr>
